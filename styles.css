@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+body {
+  font-family: 'Atkinson Hyperlegible', sans-serif;
+  max-width: 550px;
+  margin: auto;
+  background-color: #fffbf0;
+}
+header {
+  background-color: #39cc74;
+  border-radius: 15px 15px 0 0;
+  text-align: center;
+}
+h1 {
+  padding-top: 15px;
+  margin-bottom: 0;
+}
+h4 {
+  color: #444444;
+}
+#search {
+  border: none;
+  height: 25px;
+  width: 200px;
+  padding: 0 5px;
+  margin-bottom: 10px;
+}
+#hideList {
+  margin-bottom: 15px;
+}
+label {
+  font-size: 0.7em;
+  padding: 0;
+  margin-bottom: 15px;
+}
+main {
+  border: 2px solid #d1cac6;
+  border-top: 0;
+  border-radius: 0 0 15px 15px;
+  margin-top: 0;
+  text-align: center;
+}
+form.add {
+  padding-top: 15px;
+}
+#addItem {
+  border: 1px solid #999999;
+  width: 200px;
+  height: 25px;
+  color: #999999;
+  padding: 0 8px;
+  margin-right: 0;
+}
+button.add {
+  background-color: #39cc74;
+  border: none;
+  margin-left: 0;
+  height: 25px;
+  color: white;
+}
+button.add:hover {
+  cursor: pointer;
+}
+div.items {
+  text-align: left;
+  padding: 0 10px 20px 20px;
+}
+div.singleItem {
+  border-left: 3px solid grey;
+  padding: 0 15px;
+  margin: 0 15px;
+  position: relative;
+}
+div.singleItem:hover {
+  border-left: 3px solid #f2482f;
+  color: darkred;
+}
+p.itemName {
+  padding-right: 50px;
+}
+button.delete {
+  margin: auto;
+  position: absolute;
+  font-size: 0.8em;
+  top: 0; left: 410px; bottom: 0; right: 0;
+  border: none;
+  background-color: #f2482f;
+  border-radius: 3px;
+  padding: 1px 2px;
+  width: 60px;
+  height: 25px;
+  color: white;
+
+}
+button.delete:hover {
+  cursor: pointer;
+  background-color: darkgrey;
+}
+.hide {
+  display: none;
+}
+.nothing {
+  color: darkred;
+  padding-left: 15px;
+}
+.add-bottom-padding {
+  padding-bottom: 15px;
+}
+.material-symbols-outlined {
+  font-size: 1.3em;
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 48
+}
+.draggable {
+  cursor: move;
+  user-select: none;
+}
+.dropzone {
+  border: 2px dashed brown;
+  height: 25px;
+  width: 500 px;
+}

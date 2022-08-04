@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Shopping List</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+  <header>
+    <h1>Shopaholic <span class="material-symbols-outlined">
+shopping_bag
+</span></h1>
+    <h4>My shopping List</h4>
+    <form class="search" action="">
+      <input type="search" id="search" name="search" placeholder="What to search for...">
+      <br>
+      <label for="hideList">Hide List</label>
+      <input type="checkbox" id="hideList" name="hideList">
+    </form>
+  </header>
+  <main>
+    <div class="add">
+      <form class="add" action="">
+        <input type="search" id="addItem" name="addItem" placeholder="Item to add">
+        <button class="add">Add</button>
+      </form>
+      <div class="errorOutput"></div>
+    </div>
+    <div class="items">
+      <h2>Items to buy:</h2>
+      <div class="singleItem draggable" draggable="true" id="drag"
+        ondragstart="dragstartHandler(event)" ondragend="dragendHandler(event)">
+        <p class="itemName">Milk</p>
+        <button class="delete">delete</button>
+      </div>
+      <div class="singleItem draggable" draggable="true" id="drag"
+        ondragstart="dragstartHandler(event)" ondragend="dragendHandler(event)">
+        <p class="itemName">Coca Cola</p>
+        <button class="delete">delete</button>
+      </div>
+      <div class="singleItem draggable" draggable="true" id="drag"
+        ondragstart="dragstartHandler(event)" ondragend="dragendHandler(event)">
+        <p class="itemName">Oh my god! This is such a very very long chi nese
+        sounding item name!!!</p>
+        <button class="delete">delete</button>
+      </div>
+      <div class="singleItem draggable" draggable="true" id="drag"
+        ondragstart="dragstartHandler(event)" ondragend="dragendHandler(event)">
+        <p class="itemName">Orange Juice</p>
+        <button class="delete">delete</button>
+      </div>
+    </div>
+    <div class="dropzone" ondrop="dropHandler(event)"
+      ondragover="dragoverHandler(event)"></div>
+  </main>
+  <script src="shopping.js"></script>
+</body>
+</html>
