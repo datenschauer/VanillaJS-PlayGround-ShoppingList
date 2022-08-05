@@ -101,6 +101,9 @@ button.delete:hover {
   cursor: pointer;
   background-color: darkgrey;
 }
+input[type=search]:focus {
+  outline: none;
+}
 .hide {
   display: none;
 }

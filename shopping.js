@@ -53,6 +53,11 @@ function addItem(itemText) {
   singleItem.appendChild(button);
   addEventListeners(singleItem);
   items.appendChild(singleItem);
+  // check if "nothing to show!" has to be removed
+  const nothing = document.querySelector('.nothing');
+  if (nothing) {
+    nothing.remove(nothing);
+  }
 }
 
 // add a method to hide our whole shopping list
@@ -105,9 +110,6 @@ let currentDrag;
 // and where dragged items can land
 const dropzone = document.createElement('div');
 dropzone.classList.add('dropzone');
-// dropzone.addEventListener('dragleave', dragleaveHandler);
-// dropzone.addEventListener('dragenter', dragenterHandler);
-// dropzone.addEventListener('drop', dropHandler);
 
 const dragstartHandler = (e) => {
   currentDrag = e.target;
