@@ -47,8 +47,11 @@ function addItem(itemText) {
   p.className = 'itemName';
   p.textContent = itemText;
   singleItem.className = 'singleItem';
+  singleItem.classList.add('draggable');
+  singleItem.setAttribute('draggable', true);
   singleItem.appendChild(p);
   singleItem.appendChild(button);
+  addEventListeners(singleItem);
   items.appendChild(singleItem);
 }
 
@@ -92,32 +95,82 @@ searchInput.addEventListener('input', (e) => {
 searchInput.addEventListener('submit', (e) => {
   console.log('submitted!');
   e.preventDefault();
-});
+  e.stopPropagation();
+}, true);
 
 // ******** make the singleItems draggable by the User
 let currentDrag;
 
+// create an invsible doprzone which is placed before or after an item
+// and where dragged items can land
+const dropzone = document.createElement('div');
+dropzone.classList.add('dropzone');
+// dropzone.addEventListener('dragleave', dragleaveHandler);
+// dropzone.addEventListener('dragenter', dragenterHandler);
+// dropzone.addEventListener('drop', dropHandler);
+
 const dragstartHandler = (e) => {
   currentDrag = e.target;
-  console.log(currentDrag);
-  // const dti = e.dataTransfer.items;
-  // store the id for transferred item
-  // dti.add(e.target.id, 'text/plain');
-
   e.effectAllowed = 'move';
 };
 
 const dragendHandler = (e) => {
-};
-
-const dropHandler = (e) => {
-  e.preventDefault();
-  currentDrag.remove(currentDrag);
-  items.appendChild(currentDrag);
+  dropzone.remove(dropzone);
 };
 
 const dragoverHandler = (e) => {
   e.preventDefault();
+  let target;
+  if (e.target.tagName !== 'DIV') {
+    target = e.target.parentElement;
+  } else {
+    target = e.target;
+  }
+  // only do something if item is dragged on another item
+  if (target !== currentDrag) {
+    // if dragged item comes from below, we want a drop zone above hovered item
+    if (target.compareDocumentPosition(currentDrag) === 4) {
+      // create a dropzone ABOVE target
+      target.parentElement.insertBefore(dropzone, target);
+    } else {
+      // create a dropzone BELOW target
+      if (target.nextElementSibling === null) {
+        target.parentElement.appendChild(dropzone);
+      } else {
+        target.parentElement.insertBefore(dropzone, target.nextElementSibling);
+      }
+    }
+  }
+};
+
+/** kill dropzone when it when it or target is left */
+function dragleaveHandler(e) {
+  e.preventDefault();
+  // no problem when currentDrag is above target
+  dropzone.remove(dropzone);
 }
 
+/** remove dropped item */
+function dropHandler(e) {
+  e.preventDefault();
+  if (document.querySelector('.dropzone') !== null) {
+    dropzone.parentElement.insertBefore(currentDrag, dropzone);
+  }
+};
+
+/** adding event listeners */
+function addEventListeners(item) {
+  item.addEventListener('dragstart', dragstartHandler);
+  item.addEventListener('dragover', dragoverHandler);
+  item.addEventListener('dragend', dragendHandler);
+  item.addEventListener('dragleave', dragleaveHandler);
+  item.addEventListener('drop', dropHandler);
+};
+
+// only for initial items
+draggableItems = document.querySelectorAll('.draggable');
+
+draggableItems.forEach((item) => {
+  addEventListeners(item);
+});
 

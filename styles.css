@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+oimport url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 input,
 button,
 textarea,
@@ -124,7 +124,10 @@ button.delete:hover {
   user-select: none;
 }
 .dropzone {
-  border: 2px dashed brown;
-  height: 25px;
-  width: 500 px;
+  display: none;
+  /*border-bottom: 2px dashed brown;*/
+  /*height: 1px;*/
+  /*margin: 0;*/
+  /*padding: 0;*/
+  width: 450 px;
 }
