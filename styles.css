@@ -134,7 +134,36 @@ input[type=search]:focus {
   /*padding: 0;*/
   width: 450 px;
 }
-@media (max-width: 50em) {
-  width: 100%;
+/* Portrait */
+@media only screen
+  and (min-device-width: 375px)
+  and (max-device-width: 812px)
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: portrait) {
+  body {
+    max-width: 95%;
+    margin: auto;
+    font-size: 1.5em;
+  }
+  #search {
+    width: 300px;
+    height: 35px;
+  }
+button.delete {
   margin: auto;
+  position: absolute;
+  font-size: 1em;
+  top: 0; left: 650px; bottom: 0; right: 0px;
+  padding: 1px 2px;
+  width: 80px;
+  height: 35px;
+  color: white;
+
+}
+div.singleItem {
+  border-left: 3px solid grey;
+  padding: 0 15px;
+  margin: 0 150px 0 0;
+  position: relative;
+}
 }
